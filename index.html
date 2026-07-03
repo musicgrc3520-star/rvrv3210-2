@@ -49,8 +49,8 @@
     <div id="login-panel">
         <h2>聊天室系統</h2>
         <input type="text" id="username" placeholder="帳號">
-        <input type="password" id="password" placeholder="密碼 (或舊密碼)">
-
+        <!-- 💡 已修正：移除密碼欄位多餘的變更密碼提示文字 -->
+        <input type="password" id="password" placeholder="密碼">
         
         <button class="btn-primary" onclick="authAction('LOGIN')">登入</button>
         <button class="btn-secondary" onclick="authAction('REGISTER')">線上註冊</button>
@@ -81,10 +81,11 @@
                 resolve(true);
                 return;
             }
-            ws = new WebSocket("ws://192.168.1.112:55555");
+            // 💡 這裡已經完美設定好你的 localtunnel 網址
+            ws = new WebSocket("wss://solid-dancers-sell.loca.lt");
             ws.onopen = () => resolve(true);
             ws.onerror = () => {
-                alert("無法連線到伺服器，請確認伺服器已啟動！");
+                alert("無法連線到伺服器！");
                 resolve(false);
             };
 
