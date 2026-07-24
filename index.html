@@ -1,14 +1,165 @@
-<!DOCTYPE html>
+<!--DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>更新(生成迷宮)</title>
+    <title></title>
     <style>
     </style>
 <body>
-<h1>c歡迎來到rvrv3210網</h1>
-<h2>更新:生成迷宮</h2>
-<h3>1.自訂起終點(座標)</h3>
+<h1>歡迎來到rvrv3210網</h1>
+<h2></h2>
+
+</body>
+</html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rvrv3210網站-功能(生成迷宮)</title>
+    <link rel="icon" sizes="400x500" href="loge.jpg">
+    <style>
+        body{
+            background-color: #00b0cb;  
+        }
+        header{
+            text-align:center;
+            color:#ffffff;
+            background:linear-gradient(to right,
+            #ff0000,
+            #ff8800,
+            #ffff00,
+            #00ff00,
+            #00ffff,
+            #0000ff,
+            #aa00aa,
+            #0000ff,
+            #00ffff,
+            #00ff00,
+            #ffff00,
+            #ff8800,
+            #ff0000);
+            background-size: 400%;
+            white-space: nowrap; 
+            overflow: hidden; 
+            animation: rainbow 15s linear infinite;            
+        }
+        main{
+            text-align:center;
+            background-color: #000;
+            color: #fff;
+            animation: Black_to_White_to_Black 10s infinite; 
+            box-shadow: 10px 10px 10px 0px #777;
+        }
+        footer{
+            background: linear-gradient(to right,#ffffff,#000000);
+            text-align:center;
+            background-size: 200%;
+            animation: Black_and_white 2s infinite; 
+                      
+        }
+        footer button{
+            font-size: 25px;
+            color: #fff;
+            background: linear-gradient(to right,#ff0000,#ff8800,#ffff00,#00ff00,#00ffff,#0000ff,#aa00aa);
+            border-radius: 20px;   
+            transition: 1s;
+            text-align:center;
+        }
+        footer button:hover{
+            color: #000;           
+        }
+        nav button{
+            border-radius: 20px;
+            background: linear-gradient(to right,#000000,#ffffff);
+            color: #eeff00;
+            background-size: 200%;
+            transition: 1s;
+        }
+        nav button:hover{
+            font-size: 25px;
+            background-position:100%;
+            color: #ff0000;
+        }
+        main button{
+            color: #fff;
+            background-color: #000;
+            border-radius: 20px;
+        }
+        nav{
+            background-color: linear-gradient(to right,#ffffff,#000000);
+            animation: Black_to_White_to_Black 2s infinite; 
+        }
+        main div{
+            color: #000;
+            background: linear-gradient(to right bottom,#ff0000,#ff8800);
+            border: 10px #000 groove;
+        }
+        b{
+            font-size: 35px;
+        }
+        b img{
+            transform: translate(0,4px);
+        }
+        @keyframes Black_to_White_to_Black{
+            0%{
+                color: #fff;
+                background-color: #000;
+            }
+            50%{
+                color: #000;
+                background-color: #fff;
+            }
+            100%{
+                color: #fff;
+                background-color: #000;           
+            }
+        }
+        @keyframes rainbow{
+            0%{
+                background-position:0%
+            }
+            50%{
+                background-position:400%
+            }
+            100%{
+                background-position:800%
+            }
+        }
+        @keyframes Black_and_white{
+            0%{
+                background-position:0%
+            }
+            50%{
+                background-position:100%
+            }
+            100%{
+                background-position:0%
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <b>歡迎來到rvrv3210網站<img src="loge.jpg"></b>      
+    </header>
+    <nav>
+        <a href="https://musicgrc3520-star.github.io/rvrv3210-1"><button>首頁</button></a><a><button style="color: #000;">功能(生成迷宮)</button></a>
+    <br>
+    </nav>
+    <main>
+        <h2 id="homepage">功能:生成迷宮</h2>
+        <h3 style="color: #eeff00; border:1px solid #000;">設定</h3> 
+        <h3>1.自訂起終點(座標，填奇數)</h3>
+        <h3>2.生成速度&解答速度</h3>
+        <h3>3.自訂起點&終點(填奇數，未來會更方便)</h3>
+        <h3>4.生成迷宮&顯示答案(速度在生成速度&解答速度調，生成速度調到101會直接生出)</h3>
+        <h3 style="color: #eeff00;border:1px solid #000;">其他</h3> 
+        <h2>我的其他連結</h2>
+        <a href="game/game.html"><button>生成迷宮</button></a>
+    <footer>
+        <a href="https://www.youtube.com/channel/UCGQrk3LofChvqrj4Y7XpYYw" target="_blank"><button>前往我的yt</button></a>
+    </footer>
 </body>
 </html>
