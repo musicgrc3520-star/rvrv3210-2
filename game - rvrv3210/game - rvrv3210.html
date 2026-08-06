@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,8 @@
    <link rel="icon" sizes="400x500" href="https://musicgrc3520-star.github.io/rvrv3210-1/loge.jpg">
     <style>
         body{
-            background-color: #00b0cb;  
+            background-color: #00b0cb;
+            scrollbar-color: red orange;
         }
         header{
             text-align:center;
@@ -74,12 +76,11 @@
             border-radius: 20px;
         }
         nav{
-            background-color: linear-gradient(to right,#ffffff,#000000);
+            background: linear-gradient(to right,#ffffff,#000000);
             animation: Black_to_White_to_Black 2s infinite; 
         }
         main div{
             color: #000;
-            background: linear-gradient(to right bottom,#ff0000,#ff8800);
             border: 10px #000 groove;
         }
         b{
@@ -134,7 +135,9 @@
         <b>歡迎來到rvrv3210網站<img src="https://musicgrc3520-star.github.io/rvrv3210-1/loge.jpg"></b>      
     </header>
     <nav>
-        <a href="https://musicgrc3520-star.github.io/rvrv3210-1"><button>首頁</button></a><a href="https://musicgrc3520-star.github.io/rvrv3210-2"><button>功能(生成迷宮)</button></a><a><button style="color: #fff;">測試</button></a>
+        <a href="https://musicgrc3520-star.github.io/rvrv3210-1"><button>首頁</button></a>
+        <a href="https://musicgrc3520-star.github.io/rvrv3210-2"><button>功能(生成迷宮)</button></a>
+        <a><button style="color: #fff;">功能(生成迷宮)</button></a>
     <br>
     </nav>
     <main>
@@ -144,25 +147,41 @@
         <option value="apple">蘋果</option>
         <option value="banana">香蕉</option>
     </select>
+    <br>
     <button onclick="addOption()">新增</button>
-    <input type="text" id="nameInput" placeholder="新增選項">
+    新增選項<input type="text" id="nameInput">
     <button onclick="movere()">清空</button>
-    <input type="number" id="numberInput" placeholder="刪除選項(輸入數字)">
+    刪除選項(輸入數字)<input type="number" id="numberInput">
     <button onclick="Clear()">全部清空</button>
     <button onclick="saveOptions()">儲存</button>
     <button onclick="localStorage2()">加載</button>
     <br>
-    <textarea type="text" placeholder="儲存文字" id="textinput"></textarea>
+    儲存文字<textarea placeholder="" id="textinput"></textarea>
+    <br>
     <button onclick="text()">上次儲存</button>
     <button onclick="Stora()">儲存</button>
     <br>
-    <progress><h1>123</h1></progress>
+    <h2 id=title>這是一段文字</h2>
+    <button onclick="Show_Hide()" id="button1">隱藏</button>
+    <br>
+    <progress id="progress1" value="0" max="100"></progress>
+    最大值進度條<input type="text" id="max1">
+    <button onclick="max1()">確定</button>
+    <button onclick="addProgress()">進度條</button>
+    <select id="Select1">
+        <option value="Show">增加</option>
+        <option value="Hide">減少</option>
+    </select>
+    <h2 id="text1">0</h2>
+    <br>
+    <input type="color" id="color1">
+    <button></button>
     <script>
     let select = document.getElementById("mySelect");
     function addOption(){
         let value = document.getElementById("nameInput").value;
         let option = document.createElement("option");
-        option.value = "watermelon";
+        option.value = value;
         option.textContent = value;
         select.appendChild(option);
     }
@@ -175,7 +194,7 @@
             select.remove(number - 1);
         }
         else{
-            alert("喔喔，沒這選項!")
+            alert("喔喔，沒這選項!");
         }
     }
     function Stora(){
@@ -198,14 +217,19 @@
         }
         localStorage.setItem(
             "options",
+            //轉成json
             JSON.stringify(data)
         );
     }
     function localStorage2(){
+        let data = localStorage.getItem("options");
+        if(data === null){
+            alert("目前沒有儲存的選項!");
+            return;
+        }
+        //JSON.parse():讀取
+        data = JSON.parse(data);
         select.innerHTML = "";
-        let data = JSON.parse(
-            localStorage.getItem("options")
-        );
         for(let item of data){
             let option = document.createElement("option");
             option.value = item.value;
@@ -213,11 +237,50 @@
             select.appendChild(option);
         }
     }
+    function Show_Hide(){
+        let title = document.getElementById("title");
+        let button1 = document.getElementById("button1");
+        //偵測顯示/隱藏
+        if(title.style.display == "none"){
+            title.style.display = "block"
+            button1.textContent = "隱藏"
+        }
+        else{
+            title.style.display = "none"
+            button1.textContent = "顯示"
+        }
+    }
+    function addProgress(){
+        let select1 = document.getElementById("Select1");
+        let progress = document.getElementById("progress1");
+        let text = document.getElementById("text1");
+        //偵測select1的選項
+        if(select1.value == "Show"){
+            progress.value = Math.min(progress.value +10 , progress.max);
+        }
+        else{
+            progress.value = Math.max(progress.value -10 , 0);
+        }
+        text.textContent = progress.value;
+    }
+    function max1(){
+        let progress = document.getElementById("progress1");
+        let max = Number(document.getElementById("max1").value);
+        progress.max = max;
+    }
+
+     // 設定=
+    // 比較==
+    // 嚴格比較=== 
     </script>
     <h2>我的其他連結</h2>
         <a href="https://musicgrc3520-star.github.io/rvrv3210-1/game/game.html"><button>生成迷宮</button></a>
+    </main>
     <footer>
         <a href="https://www.youtube.com/channel/UCGQrk3LofChvqrj4Y7XpYYw" target="_blank"><button>前往我的yt</button></a>
-    </main>
+    </footer>
 </body>
 </html>
+<!--
+Math.min():(js用)取最小值
+Math.max():(js用)F取最大值>
